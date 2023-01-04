@@ -1,9 +1,28 @@
-import React from 'react';
+import React from "react";
+import { Container } from "@mui/material";
+import Searcher from "./containers/Searcher";
+import { useState } from "react";
 
 const App = () => {
-  return (
-    <div>App</div>
-  )
-}
+  const [inputUser, setInputUser] = useState("octocat");
+  const [userStater, userState] = useState("inputUser");
 
-export default App
+  return (
+    <Container
+      sx={{
+        background: "whitesmoke",
+        width: "80vw",
+        height: "500px",
+        borderRadius: "16px",
+        marginTop: "40px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      <Searcher inputUser={inputUser} setInputUser={setInputUser} />
+    </Container>
+  );
+};
+
+export default App;
