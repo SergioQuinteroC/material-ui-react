@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "@mui/material";
-import Searcher from "./containers/Searcher";
+import Searcher from "./components/Searcher";
+import UserCard from "./containers/userCard";
 import { getGitHubUser } from "./services/users";
 
 const App = () => {
@@ -23,7 +24,6 @@ const App = () => {
       setUserState(userResponse);
     }
   };
-  console.log(userState);
 
   useEffect(() => {
     gettingUser(inputUser);
@@ -43,6 +43,7 @@ const App = () => {
       }}
     >
       <Searcher inputUser={inputUser} setInputUser={setInputUser} />
+      <UserCard userState={userState} />
     </Container>
   );
 };
