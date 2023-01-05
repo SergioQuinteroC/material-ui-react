@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { IconButton, Stack, TextField } from "@mui/material";
+import { Alert, IconButton, Stack, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
 const Searcher = (props) => {
-  const { setInputUser } = props;
+  const { setInputUser, notFound } = props;
 
   const [valueInput, setValueInput] = useState("");
 
@@ -18,6 +18,7 @@ const Searcher = (props) => {
   return (
     <Stack
       direction="row"
+      spacing={3}
       sx={{
         marginTop: "30px",
         width: "80%",
@@ -42,29 +43,9 @@ const Searcher = (props) => {
           ),
         }}
       />
+      {notFound && <Alert severity="error">User Not Found</Alert>}
     </Stack>
   );
 };
 
 export default Searcher;
-
-/**
- <TextField
-  label="Search Github User"
-  id="outlined-basic"
-  variant="outlined"
-  width="90%"
-  value={inputUser}
-  onChange={(e) => setInputUser(e.target.value)}
-  InputProps={{
-    startAdornment: (
-      <InputAdornment position="start">
-        <IconButton onClick={() => handleClick(setInputUser, inputUser)}>
-          <SearchIcon />
-        </IconButton>
-      </InputAdornment>
-    ),
-  }}
-/>;
-
-*/

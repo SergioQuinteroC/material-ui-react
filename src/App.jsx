@@ -21,12 +21,14 @@ const App = () => {
       setInputUser(octocat);
       setNotFound(true);
     } else {
+      setNotFound(false);
       setUserState(userResponse);
     }
   };
 
   useEffect(() => {
     gettingUser(inputUser);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inputUser]);
 
   return (
@@ -42,7 +44,11 @@ const App = () => {
         alignItems: "center",
       }}
     >
-      <Searcher inputUser={inputUser} setInputUser={setInputUser} />
+      <Searcher
+        inputUser={inputUser}
+        setInputUser={setInputUser}
+        notFound={notFound}
+      />
       <UserCard userState={userState} />
     </Container>
   );

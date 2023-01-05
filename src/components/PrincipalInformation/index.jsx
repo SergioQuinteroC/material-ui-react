@@ -8,7 +8,9 @@ const PrincipalInformation = (props) => {
     <Fragment>
       <Stack direction="row" sx={{ justifyContent: "space-between" }}>
         <Typography variant="h4">{name}</Typography>
-        <Typography variant="subtitle2">{createdAt}</Typography>
+        <Typography variant="subtitle2">
+          {new Date(createdAt).toLocaleDateString("en-us")}
+        </Typography>
       </Stack>
       <Typography variant="caption">@{login}</Typography>
     </Fragment>
